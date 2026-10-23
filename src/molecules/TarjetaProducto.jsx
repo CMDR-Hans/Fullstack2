@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Button, Card } from 'react-bootstrap';
-import { useCart } from '../context/CartContext';
+import { useCart } from '../hooks/useCart';
 
 function TarjetaProducto({ imagen, nombre, descripcion, precio, onOpenDetail }) {
   const { addToCart } = useCart();

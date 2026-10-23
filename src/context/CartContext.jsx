@@ -1,6 +1,5 @@
-import { createContext, useContext, useEffect, useMemo, useState } from 'react';
-
-const CartContext = createContext(null);
+import { useEffect, useMemo, useState } from 'react';
+import CartContext from './cartContextInstance';
 const STORAGE_KEY = 'sonido-vivo-cart';
 
 export function CartProvider({ children }) {
@@ -75,14 +74,4 @@ export function CartProvider({ children }) {
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
-}
-
-export function useCart() {
-  const context = useContext(CartContext);
-
-  if (!context) {
-    throw new Error('useCart debe usarse dentro de CartProvider');
-  }
-
-  return context;
 }

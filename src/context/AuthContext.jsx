@@ -1,6 +1,5 @@
-import { createContext, useContext, useMemo, useState } from 'react';
-
-const AuthContext = createContext(null);
+import { useCallback, useMemo, useState } from 'react';
+import AuthContext from './authContextInstance';
 const adminAccount = {
   id: 'admin',
   nombre: 'Administrador',
@@ -20,7 +19,7 @@ export function AuthProvider({ children }) {
   const [users, setUsers] = useState([]);
   const [currentUser, setCurrentUser] = useState(null);
 
-  const registerUser = ({ nombre, email, password }) => {
+  const registerUser = useCallback(({ nombre, email, password }) => {
     const cleanNombre = nombre.trim();
     const cleanEmail = email.trim().toLowerCase();
 
@@ -50,9 +49,9 @@ export function AuthProvider({ children }) {
     setCurrentUser(newUser);
 
     return { ok: true, message: 'Usuario registrado correctamente.' };
-  };
+  }, [users]);
 
-  const loginUser = ({ email, password }) => {
+  const loginUser = useCallback(({ email, password }) => {
     const cleanEmail = email.trim().toLowerCase();
     const cleanPassword = password.trim();
 
@@ -84,26 +83,16 @@ export function AuthProvider({ children }) {
 
     setCurrentUser(user);
     return { ok: true, message: `Bienvenido, ${user.nombre}.` };
-  };
+  }, [users]);
 
-  const logoutUser = () => {
+  const logoutUser = useCallback(() => {
     setCurrentUser(null);
-  };
+  }, []);
 
   const value = useMemo(
     () => ({ users, currentUser, registerUser, loginUser, logoutUser }),
-    [users, currentUser]
+    [users, currentUser, registerUser, loginUser, logoutUser]
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
-}
-
-export function useAuth() {
-  const context = useContext(AuthContext);
-
-  if (!context) {
-    throw new Error('useAuth debe usarse dentro de AuthProvider');
-  }
-
-  return context;
 }

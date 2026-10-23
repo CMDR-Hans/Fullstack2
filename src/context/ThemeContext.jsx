@@ -1,6 +1,5 @@
-import { createContext, useContext, useEffect, useMemo, useState } from 'react';
-
-const ThemeContext = createContext(null);
+import { useEffect, useMemo, useState } from 'react';
+import ThemeContext from './themeContextInstance';
 const STORAGE_KEY = 'sonido-vivo-theme';
 
 export function ThemeProvider({ children }) {
@@ -20,14 +19,4 @@ export function ThemeProvider({ children }) {
       <div className={`app-shell theme-${theme}`}>{children}</div>
     </ThemeContext.Provider>
   );
-}
-
-export function useTheme() {
-  const context = useContext(ThemeContext);
-
-  if (!context) {
-    throw new Error('useTheme debe usarse dentro de ThemeProvider');
-  }
-
-  return context;
 }

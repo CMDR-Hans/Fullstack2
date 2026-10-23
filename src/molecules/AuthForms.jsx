@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Alert, Button, ButtonGroup, Card, Form } from 'react-bootstrap';
-import { useAuth } from '../context/AuthContext';
+import { useAuth } from '../hooks/useAuth';
 
 const initialLogin = { email: '', password: '' };
 const initialRegister = { nombre: '', email: '', password: '' };

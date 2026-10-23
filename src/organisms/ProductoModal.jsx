@@ -1,4 +1,4 @@
-import { useCart } from '../context/CartContext';
+import { useCart } from '../hooks/useCart';
 import { Button, Modal, Row, Col, Image, Badge } from 'react-bootstrap';
 
 function ProductoModal({ isOpen, onClose, product }) {

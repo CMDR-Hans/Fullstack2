@@ -1,10 +1,10 @@
 import logo from '../assets/img/logo.svg';
-import { useCart } from '../context/CartContext';
-import { useTheme } from '../context/ThemeContext';
-import { useAuth } from '../context/AuthContext';
-import ThemeSelector from '../molecules/ThemeSelector';
+import { useCart } from '../hooks/useCart';
+import { useTheme } from '../hooks/useTheme';
+import { useAuth } from '../hooks/useAuth';
 import { Link } from 'react-router-dom';
 import { Badge, Button, Container, Nav, Navbar } from 'react-bootstrap';
+import ThemeSelector from '../molecules/ThemeSelector';
 
 function Header({ itemsMenu }) {
     const { cartCount, setIsCartOpen } = useCart();
@@ -30,22 +30,28 @@ function Header({ itemsMenu }) {
                     )}
                     <Navbar.Toggle aria-controls="storefront-navbar" />
                     <Navbar.Collapse id="storefront-navbar">
-                      <Nav className="nav-menu ms-auto align-items-xl-center">
-                        {itemsMenu.map((item) => (
+                        <Nav className="nav-menu ms-auto align-items-xl-center">
+                          {itemsMenu.map((item) => (
                             <Nav.Link as={Link} to={item.href} key={item.href || item.label} className="nav-link">
                                 {item.label}
                             </Nav.Link>
-                        ))}
-                        <div className="nav-menu-control">
-                            <ThemeSelector theme={theme} setTheme={setTheme} />
-                        </div>
-                        <div className="nav-menu-control">
-                            <Button type="button" variant="outline-primary" className="cart-indicator" aria-label={`Carrito con ${cartCount} productos`} onClick={() => setIsCartOpen(true)}>
+                          ))}
+                          <div className="nav-menu-control">
+                              <ThemeSelector theme={theme} setTheme={setTheme} />
+                          </div>
+                          <div className="nav-menu-control">
+                            <Button
+                              type="button"
+                              variant="outline-primary"
+                              className="cart-indicator"
+                              aria-label={`Carrito con ${cartCount} productos`}
+                              onClick={() => setIsCartOpen(true)}
+                            >
                                 <span className="cart-icon">🛒</span>
                                 <span className="cart-count">{cartCount}</span>
                             </Button>
-                        </div>
-                      </Nav>
+                          </div>
+                        </Nav>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>

@@ -727,12 +727,6 @@ el número de columnas según el tamaño de la pantalla
   text-transform: uppercase;
 }
 
-.sku {
-  color: #777777;
-  font-size: 0.85rem;
-  margin-bottom: 15px;
-}
-
 .detail-price {
   font-size: 2rem;
   font-weight: 800;
@@ -763,31 +757,10 @@ el número de columnas según el tamaño de la pantalla
   color: var(--text-light);
 }
 
-.purchase-controls {
-  display: flex;
-  gap: 15px;
-  align-items: center;
-  margin-bottom: 15px;
-}
-
 .btn-cart {
   flex-grow: 1;
   padding: 12px;
   font-size: 1rem;
-}
-
-.cart-message {
-  background-color: var(--success);
-  color: var(--text-light);
-  padding: 12px;
-  border-radius: 4px;
-  text-align: center;
-  font-weight: 600;
-  transition: opacity var(--transition);
-}
-
-.cart-message.hidden {
-  display: none;
 }
 
 /* ==================================================
@@ -885,10 +858,6 @@ el número de columnas según el tamaño de la pantalla
 ================================================== */
 @media (max-width: 768px) {
   .product-detail-container {
-    grid-template-columns: 1fr;
-  }
-
-  .product-modal-content {
     grid-template-columns: 1fr;
   }
 
@@ -1002,91 +971,24 @@ el número de columnas según el tamaño de la pantalla
   }
 }
 
-/* ==================================================
-   MODAL DETALLE DE PRODUCTO
-================================================== */
-.product-modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.72);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2000;
-  padding: 20px;
-}
-
-.product-modal {
-  position: relative;
-  width: min(900px, 100%);
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
-  overflow: hidden;
-}
-
-.product-modal-content {
-  display: grid;
-  grid-template-columns: minmax(260px, 1.1fr) minmax(260px, 1fr);
-  gap: 24px;
-  padding: 26px;
-}
-
 .product-modal-image {
   width: 100%;
-  height: 100%;
-  min-height: 320px;
+  max-height: 420px;
   object-fit: cover;
   border-radius: 10px;
   border: 1px solid var(--border-color);
   background: #111111;
 }
 
-.product-modal-info {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.product-modal-info h3 {
-  font-size: 1.9rem;
+.modal-content {
+  background-color: var(--bg-card);
+  border-color: var(--border-color);
   color: var(--text-light);
-  margin: 12px 0 8px;
 }
 
-.product-modal-info .detail-price {
-  margin-bottom: 16px;
-}
-
-.modal-close {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  width: 36px;
-  height: 36px;
-  border: none;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.08);
-  color: var(--text-light);
-  font-size: 1.7rem;
-  line-height: 1;
-  cursor: pointer;
-  transition: background-color var(--transition), transform var(--transition);
-}
-
-.modal-close:hover {
-  background: rgba(230, 126, 34, 0.2);
-  transform: scale(1.05);
-}
-
-.product-modal .purchase-controls {
-  margin-top: 12px;
-  margin-bottom: 0;
-}
-
-.product-modal .btn-cart {
-  width: 100%;
+.modal-header,
+.modal-footer {
+  border-color: var(--border-color);
 }
 
 /* ==================================================
@@ -1227,60 +1129,6 @@ el número de columnas según el tamaño de la pantalla
 .admin-form h3 {
   color: var(--text-light);
   margin-bottom: 6px;
-}
-
-.admin-form label {
-  display: grid;
-  gap: 8px;
-  color: var(--text-light);
-  font-weight: 600;
-}
-
-.admin-form input,
-.admin-form textarea,
-.admin-form select {
-  width: 100%;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  padding: 12px 14px;
-  color: var(--text-light);
-}
-
-.admin-product-list {
-  display: grid;
-  gap: 16px;
-}
-
-.admin-product-item {
-  display: grid;
-  grid-template-columns: 90px minmax(0, 1fr);
-  gap: 16px;
-  padding: 12px;
-  border: 1px solid var(--border-color);
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 10px;
-}
-
-.admin-product-item img {
-  width: 90px;
-  height: 90px;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-.admin-product-item h4 {
-  color: var(--text-light);
-  margin-bottom: 6px;
-}
-
-.admin-product-item p {
-  margin: 0 0 8px;
-  color: var(--text-muted);
-}
-
-.admin-product-item strong {
-  color: var(--primary);
 }
 
 /* ==================================================

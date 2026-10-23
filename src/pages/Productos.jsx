@@ -5,7 +5,7 @@ import Footer from '../organisms/Footer';
 import Seccion from '../atoms/Seccion';
 import GaleriaProductos from '../organisms/GaleriaProductos';
 import ProductFormAdmin from '../organisms/ProductFormAdmin';
-import { useAuth } from '../context/AuthContext';
+import { useAuth } from '../hooks/useAuth';
 import { productos } from '../data/productos';
 import { itemsMenu } from '../data/menu';
 

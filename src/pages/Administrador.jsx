@@ -4,7 +4,7 @@ import { Alert, Button, Form, Image, Table } from 'react-bootstrap';
 import Header from '../organisms/Header';
 import Footer from '../organisms/Footer';
 import ProductFormAdmin from '../organisms/ProductFormAdmin';
-import { useAuth } from '../context/AuthContext';
+import { useAuth } from '../hooks/useAuth';
 import { itemsMenu } from '../data/menu';
 
 function Administrador({ products, onAddProduct, onUpdateProduct, onDeleteProduct }) {

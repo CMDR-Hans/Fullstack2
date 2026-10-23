@@ -1,6 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
-import { CartProvider, useCart } from '../context/CartContext';
+import { CartProvider } from '../context/CartContext';
+import { useCart } from '../hooks/useCart';
 import TarjetaProducto from './TarjetaProducto';
 
 function CartCount() {
