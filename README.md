@@ -49,8 +49,8 @@ Comandos disponibles:
 
 ## Acceso de demostración
 
-- **Administrador:** `admin@admin.cl` / `admin123`
-- **Usuario regular:** `usuario@usuario.cl` / `usuario123`
+- **Administrador:** `admin@admin.cl` / `admin123` — puede probar la creación y administración de productos.
+- **Usuario regular:** `usuario@usuario.cl` / `usuario123` — puede iniciar sesión como usuario regular.
 
 Estas credenciales son estáticas y solo sirven para demostración local. La autenticación es exclusivamente de frontend: no usar como mecanismo de seguridad en producción. Las cuentas registradas y los productos del CRUD viven en memoria; se pierden al recargar la página. El carrito y el tema sí se conservan localmente.
 
