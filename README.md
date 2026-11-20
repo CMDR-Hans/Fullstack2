@@ -96,6 +96,14 @@ Ejecutar todas las pruebas:
 .\mvnw.cmd test
 ```
 
+La capa de testing del backend incluye:
+
+- Pruebas unitarias de `ClienteService`, `ProductoService` y `VentaService` con Mockito.
+- Pruebas de controladores con `MockMvc` y validación de parámetros y JSON.
+- Pruebas de excepciones y respuestas HTTP centralizadas.
+- Prueba de carga del contexto Spring con MySQL.
+- Ejecución automática en GitHub Actions para cada push o pull request hacia `main`.
+
 ## Ejecutar el frontend
 
 Abre otra terminal desde la raíz del proyecto:
